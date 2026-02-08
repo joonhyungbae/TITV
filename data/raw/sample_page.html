@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>시각예술 :: DA-Arts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="_csrf" content="acc54d9c-78f9-4947-ba4f-beaa45859a54" />
+    <meta name="_csrf_header" content="X-CSRF-TOKEN" />
+    
+    <link rel="canonical" href="https://www.daarts.or.kr/" />
+    
+        
+        <link type="text/css" rel="stylesheet" href="/css/swiper-bundle.min.css" />
+        <link type="text/css" rel="stylesheet" href="/css/sweetalert2.min.css" />
+        <link type="text/css" rel="stylesheet" href="/css/style.css?ver=202507300900" />
+        <link type="text/css" rel="stylesheet" href="/css/common.css?ver=202507300900" />
+        <link type="text/css" rel="stylesheet" href="/css/stone.css?ver=202507300900" />
+        <link rel="shortcut icon" href="/images/favicon_daarts.ico">
+        
+        
+        <script>
+        var contextPath = "";
+        var result_code = null;
+        var image_resize = "\/retrieveimg";
+        var image_retrieve = "\/retrieve";
+        var image_ucira = "\/upload\/ucira";
+        var searchUrl = "https:\/\/artsarchive.arko.or.kr";
+        var libraryUrl = "https:\/\/archive.arko.or.kr";
+        var session = false;
+        </script>
+        
+        <script src="/js/libs/jquery-1.12.4.min.js"></script>
+        <script src="/js/libs/swiper-bundle.min.js"></script>
+        <script src="/js/libs/typeahead.bundle.min.js"></script>
+        <script src="/js/libs/polyfill.min.js"></script>
+        <script src="/js/libs/sweetalert2.min.js"></script>
+        <script src="/js/libs/design.js?ver=202507300900"></script>
+        <script src="/js/common.js?ver=202507300900"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134730524-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-134730524-1');
+    </script>
+<meta property="og:title" content="시각예술 강경구">
+<meta property="og:image" content="/retrieve/177173">
+<meta name="keywords" content="키워드, 활동부문, 블로그 방문하기, 주요약력" />
+
+    <meta property="og:description" content="&lt;div&gt;	1952 서울출생&lt;/div&gt;&lt;div&gt;	서울대학교 미술대학 회화과 및 동 대학원 졸업&lt;/div&gt;&lt;div&gt;	&lt;br /&gt;&lt;/div&gt;&lt;div&gt;	&lt;strong&gt;개인전&lt;/stron"/>
+    <meta name="description" content="&lt;div&gt;	1952 서울출생&lt;/div&gt;&lt;div&gt;	서울대학교 미술대학 회화과 및 동 대학원 졸업&lt;/div&gt;&lt;div&gt;	&lt;br /&gt;&lt;/div&gt;&lt;div&gt;	&lt;strong&gt;개인전&lt;/stron"/>
+    
+<script src="/js/libs/datatables.min.js"></script>
+<script src="/js/libs/jquery.highlight.js"></script>
+<script src="/js/libs/readmore.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var table = $("#datatable").DataTable({
+            paging: false,
+            ordering: false,
+            info: false,
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "검색어를 입력해 주세요.",
+                zeroRecords: "검색결과가 없습니다."
+            }
+        });
+
+        table.on('draw', function() {
+            var body = $(table.table().body());
+            body.unhighlight();
+            body.highlight(table.search());
+        });
+
+        $('.article').readmore({
+            speed: 500,
+            collapsedHeight: 486,
+            moreLink: '<div class="more_view"><a href="#" class="btn_more">주요약력 더 보기 +</a></div>',
+            lessLink: '<div class="more_view"><a href="#" class="btn_more">주요약력 접기 -</a></div>'
+        });
+
+        $('.image_all_open').click(function() {
+            if ($(this).hasClass('close')) {
+                $('.media_more').removeClass('display-none');
+                $('.media_more').addClass('open');
+                $(this).removeClass('close');
+                $(this).addClass('open');
+                $(this).text('이미지 접기');
+            } else {
+                $('.media_more').removeClass('open');
+                $('.media_more').addClass('display-none');
+                $(this).removeClass('open');
+                $(this).addClass('close');
+                $(this).text('이미지 더 보기 +');
+            }
+        });
+
+        $(document).on('click', '.page-link', function(event) {
+            var page = $(this).data('page');
+            var data = {
+                page: page
+            }
+            ajaxSearch('/api/visual/image/' + $('#visual_collection_id').val(), data, function(result) {
+                makeVisualImageList(result.data, false);
+                makePaging(result.paging, '.paging');
+            });
+        });
+
+        $('.paging+.more_view .btn_more').on('click', function() {
+            var page = $('#visual_paging').val();
+            var data = {
+                page: page
+            }
+            ajaxSearch('/api/visual/image/' + $('#visual_collection_id').val(), data, function(result) {
+                makeVisualImageList(result.data, true);
+                var paging = result.paging;
+                $('#visual_paging').val(paging.next);
+                if (paging.total < (paging.page * paging.size)) {
+                    $('.more_view').hide();
+                }
+            });
+        });
+
+    });
+
+    function makeVisualImageList(result, isAppend) {
+        var strHTML = '';
+        $.each(result, function(index, item) {
+        	const srParts = [
+        	    item.title,
+        	    item.creation_year ? item.creation_year + '년' : '',
+        	    item.category1 || '',
+        	    item.category2 || '',
+        	    item.category3 || ''
+        	];
+        	
+            strHTML += '<li>';
+            strHTML += '    <a href="#" class="inbox img">';
+            strHTML += '        <div class="imgbox">';
+            strHTML += '            <div class="img" data-image-url="' + image_ucira + '/arts/' + item.file_name + '" data-image-title="' + item.title + '" style="background-image:url(\'' +
+            image_ucira + '/thumbnail/' + item.file_name + '\');"></div > ';
+            strHTML += '        </div>';
+            strHTML += '        <div class="txtbox">';
+            strHTML += '    		<span class="sr-only">' + srParts.filter(Boolean).join(' - ') + '</span>';
+            strHTML += '            <h4 class="tit">' + item.title + '</h4>';
+            if (item.creation_year) {
+                strHTML += '            <dl>';
+                strHTML += '                <dt class="ico01">&nbsp;</dt>';
+                strHTML += '                <dd>' + item.creation_year + '년</dd>';
+                strHTML += '            </dl>';
+            }
+            if (item.category1) {
+                strHTML += '            <dl>';
+                strHTML += '                <dt class="ico02">&nbsp;</dt>';
+                strHTML += '                <dd>' + item.category1 + '</dd>';
+                strHTML += '            </dl>';
+            }
+            if (item.category2) {
+                strHTML += '            <dl>';
+                strHTML += '                <dt class="ico07">&nbsp;</dt>';
+                strHTML += '                <dd>' + item.category2 + '</dd>';
+                strHTML += '            </dl>';
+            }
+            if (item.category3) {
+                strHTML += '            <dl>';
+                strHTML += '                <dt class="ico08">&nbsp;</dt>';
+                strHTML += '                <dd>' + item.category3 + '</dd>';
+                strHTML += '            </dl>';
+            }
+            strHTML += '        </div>';
+            strHTML += '    </a>';
+            strHTML += '</li>';
+        });
+
+        if (isAppend) {
+            $('#visual_multimedia_list').append(strHTML);
+        } else {
+            $('#visual_multimedia_list').html(strHTML);
+        }
+    }
+    </script>
+</head>
+
+<body>
+    
+    <header id="header" class="sub02">
+    <div class="skip_nav">
+        <a href ="#contents">본문 바로가기</a>
+    </div>
+    <h1 class="m_logo">
+        <a href="/" title="DA-Arts 한국예술디지털아카이브"><img src="/images/logo.png" alt="DA-Arts 한국예술디지털아카이브" /></a>
+    </h1>
+    <div class="sub_gnb">
+        <div class="container">
+            <div class="sub_banner">
+                <div class="topFlagWrap">
+                    <p class="topFlagIn"><img src="https://www.arko.or.kr/assets/images/newLayout/headerFlag.png" alt="태극기">이 누리집은 대한민국 공식 전자정부 누리집입니다.</p>
+                    <button class="topFlagInfo" id="top_flag">
+                        공식 누리집 확인방법
+                        <span>열기</span>
+                    </button>
+                </div>
+            </div>
+            <ul class="sub_link">
+                
+                    <li><a href="https://artsarchive.arko.or.kr" target="_blank" rel="noopener noreferrer" class="intro" title="아르코예술기록원 바로가기">아르코예술기록원</a></li>
+                
+                
+            </ul>
+            <ul class="sub_login">
+                <li><a href="/intro" title="DA-Arts소개">DA-Arts 소개</a></li>
+                <li><a href="/notice" title="공지사항">공지사항</a></li>
+                
+                    <li><a href="/login" title="로그인">로그인</a></li>
+                    <li><a href="https://artsarchive.arko.or.kr/join/agree" title="회원가입">회원가입</a></li>
+                
+                
+                
+            </ul>
+        </div>
+        <div class="chkNuriAddrBnr" id="chk_nuri">
+            <div class="inner">
+                <strong>공식 누리집 주소 확인하기</strong>
+                <p>
+                    go.kr 주소를 사용하는 누리집은 대한민국 정부기관이 관리하는 누리집입니다.<br>
+                    이 밖에 or.kr 또는 .kr등 다른 도메인 주소를 사용하고 있다면 아래 URL에서 도메인 주소를 확인해 보세요.<br>
+                    <a href="https://uiux.egovframe.go.kr/search.do" target="_blank" title="새창 열림">운영중인 공식 누리집보기</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container gnb_wrap ">
+        <div class="gnb2">
+            <h1 class="logo">
+                <a href="/" title="DA-Arts 한국예술디지털아카이브"><img src="/images/logo.png" alt="DA-Arts 한국예술디지털아카이브" /></a>
+            </h1>
+        </div>
+        <ul class="gnb_menu">
+            <li>
+                <a href="#" class="gnb_menu_h2">기획컬렉션</a>
+                <div class="sub_menu_wrap">
+                    <div class="container">
+                        <p class="gnb_h3">기획컬렉션</p>
+                        <ul class="sub_menu">
+                            <li>
+                                <p class="gnb_h4">
+                                    <a href="/gusool/intro" title="구술채록">구술채록</a>
+                                </p>
+                                <ul>
+                                    <li><a href="/gusool/intro" title="사업안내">사업안내</a></li>
+                                    <li><a href="/gusool/personal" title="생애사">생애사</a></li>
+                                    <li><a href="/gusool/subject" title="주제사">주제사</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p class="gnb_h4">
+                                    <a href="/stage" title="무대미술">무대미술</a>
+                                </p>
+                                <ul>
+                                    <li><a href="/stage" title="사업안내">사업안내</a></li>
+                                    <li><a href="/stage/list" title="인물별">인물별</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p class="gnb_h4">
+                                    <a href="/folkpainting/intro" title="민화 화본">민화 화본</a>
+                                </p>
+                                <ul class="depth">
+                                    <li><a href="/folkpainting/intro" title="컬렉션 소개">컬렉션 소개</a></li>
+                                    <li><a href="/folkpainting/list" title="민화 화본">민화 화본</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p class="gnb_h4">
+                                    <a href="/script/intro" title="공연대본">공연대본</a>
+                                </p>
+                                <ul>
+                                    <li><a href="/script/intro" title="컬렉션 소개">컬렉션 소개</a></li>
+                                    <li><a href="/script/act" title="근대희곡">근대희곡</a></li>
+                                    <li><a href="/script/deliberation" title="심의대본">심의대본</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p class="gnb_h4">
+                                    <a href="/video/intro" title="공연영상">공연영상</a>
+                                </p>
+                                <ul>
+                                    <li><a href="/video/intro" title="컬렉션 소개">컬렉션 소개</a></li>
+                                    <li><a href="/video/event" title="행사별">행사별</a></li>
+                                    <li><a href="/video/collection" title="작품별">작품별</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p class="gnb_h4">
+                                    <a href="/renaissance" title="르네쌍스">르네쌍스</a>
+                                </p>
+                                <ul>
+                                    <li><a href="/renaissance/intro" title="컬렉션 소개">컬렉션 소개</a></li>
+                                    <li><a href="/renaissance/list" title="한국 유성기 음반">한국 유성기 음반</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p class="gnb_h4">
+                                    <a href="/artspace" title="예술가의 공간">예술가의 공간</a>
+                                </p>
+                                <ul>
+                                    <li><a href="/artspace/launyung" title="나운영 서재">나운영 서재</a></li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="gnb_menu_h2">공연예술</a>
+                <div class="sub_menu_wrap">
+                    <div class="container">
+                        <p class="gnb_h3">공연예술</p>
+                        <ul class="sub_menu">
+                            <li><a href="/collection/all" title="전체">전체</a></li>
+                            <li><a href="/collection/연극" title="연극">연극</a></li>
+                            <li><a href="/collection/뮤지컬" title="뮤지컬">뮤지컬</a></li>
+                            <li><a href="/collection/다원·복합" title="다원·복합">다원·복합</a></li>
+                            <li><a href="/collection/무용" title="무용">무용</a></li>
+                            <li><a href="/collection/음악" title="음악">음악</a></li>
+                            <li><a href="/collection/전통예술" title="전통예술">전통예술</a></li>
+                            <li><a href="/collection/대중예술" title="대중예술">대중예술</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="gnb_menu_h2 active">시각예술</a>
+                <div class="sub_menu_wrap">
+                    <div class="container">
+                        <p class="gnb_h3">시각예술</p>
+                        <ul class="sub_menu">
+                            <li><a href="/visual/artist" class="active" title="미술작가 500人">미술작가 500人</a></li>
+                            <li><a href="/visual/exhibition" title="전시자료">전시자료</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="gnb_menu_h2">한국현대음악</a>
+                <div class="sub_menu_wrap">
+                    <div class="container">
+                        <p class="gnb_h3">한국현대음악</p>
+                        <ul class="sub_menu">
+                            
+                            <li><a href="/creation-music/event" title="음악단체">음악단체</a></li>
+                            <li><a href="/creation-music/composer" title="작곡가별">작곡가별</a></li>
+                            <li><a href="/creation-music/title" title="작품별">작품별</a></li>
+                            <li><a href="/creation-music/directory" title="기관/행사 목록">기관/행사 목록</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="top_search">
+            <form name="frmHeadSearch" method="get" action="/search" onsubmit="return searchHeadFormSubmit();">
+                <label>
+                    <input type="text" class="text" name="keyword" placeholder="통합검색" title="검색어 입력" autocomplete="off" />
+                    <a href="#" class="btn_search search_header" aria-label="검색" title="검색"></a>
+                </label>
+            </form>
+        </div>
+    </div>
+    <!-- mobile -->
+    <div class="btn_allmenu" onclick="toggleAllMenu()">메뉴열기</div>
+    <div class="allmenu_wrap">
+        <div class="mask" onclick="toggleAllMenu()"></div>
+        <div class="allmenu">
+            <div class="am_head">
+                <div class="close_allmenu" onclick="toggleAllMenu()">메뉴닫기</div>
+                <h2 class="am_logo">
+                    <a href="/" title="DA-Arts 한국예술디지털아카이브"><img src="/images/logo.png" alt="DA-Arts 한국예술디지털아카이브" /></a>
+                </h2>
+                <p class="am_txt">로그인 후 상세정보를 확인하실 수 있습니다.</p>
+                <div class="btns">
+                    
+                        <a href="/login" title="로그인">로그인</a>
+                        <a href="https://artsarchive.arko.or.kr/join/agree" title="회원가입">회원가입</a>
+                    
+                    
+                </div>
+            </div>
+            <ul class="menu_list">
+                <li>
+                    <a href="#">DA-Arts 안내</a>
+                    <ul class="depth">
+                        <li><a href="/intro" title="DA-Arts 소개">DA-Arts 소개</a></li>
+                        <li><a href="/notice" title="공지사항">공지사항</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="공연예술">공연예술</a>
+                    <ul class="depth">
+                        <li><a href="/collection/all" title="전체">전체</a></li>
+                        <li><a href="/collection/연극" title="연극">연극</a></li>
+                        <li><a href="/collection/뮤지컬" title="뮤지컬">뮤지컬</a></li>
+                        <li><a href="/collection/다원·복합" title="다원·복합">다원·복합</a></li>
+                        <li><a href="/collection/무용" title="무용">무용</a></li>
+                        <li><a href="/collection/음악" title="음악">음악</a></li>
+                        <li><a href="/collection/전통예술" title="전통예술">전통예술</a></li>
+                        <li><a href="/collection/대중예술" title="대중예술">대중예술</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="시각예술">시각예술</a>
+                    <ul class="depth">
+                        <li><a href="/visual/artist" title="미술작가 500人">미술작가 500人</a></li>
+                        <li><a href="/visual/exhibition" title="전시자료">전시자료</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="한국현대음악">한국현대음악</a>
+                    <ul class="depth">
+                        
+                        <li><a href="/creation-music/event" title="음악단체">음악단체</a></li>
+                        <li><a href="/creation-music/composer" title="작곡가별">작곡가별</a></li>
+                        <li><a href="/creation-music/title" title="작품별">작품별</a></li>
+                        <li><a href="/creation-music/directory" title="기관/행사 목록">기관/행사 목록</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="구술채록">구술채록</a>
+                    <ul class="depth">
+                        <li><a href="/gusool/intro" title="사업안내">사업안내</a></li>
+                        <li><a href="/gusool/personal" title="생애사">생애사</a></li>
+                        <li><a href="/gusool/subject" title="주제사">주제사</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="무대미술">무대미술</a>
+                    <ul class="depth">
+                        <li><a href="/stage" title="사업안내">사업안내</a></li>
+                        <li><a href="/stage/list" title="인물별">인물별</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="민화 화본">민화 화본</a>
+                    <ul class="depth">
+                        <li><a href="/folkpainting/intro" title="컬렉션 소개">컬렉션 소개</a></li>
+                        <li><a href="/folkpainting/list" title="민화 화본">민화 화본</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="공연대본">공연대본</a>
+                    <ul class="depth">
+                        <li><a href="/script/intro" title="컬렉션 소개">컬렉션 소개</a></li>
+                        <li><a href="/script/act" title="근대희곡">근대희곡</a></li>
+                        <li><a href="/script/deliberation" title="심의대본">심의대본</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="공연영상">공연영상</a>
+                    <ul class="depth">
+                        <li><a href="/video/intro" title="컬렉션 소개">컬렉션 소개</a></li>
+                        <li><a href="/video/event" title="행사별">행사별</a></li>
+                        <li><a href="/video/collection" title="작품별">작품별</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="르네쌍스">르네쌍스</a>
+                    <ul class="depth">
+                        <li><a href="/renaissance/intro" title="컬렉션 소개">컬렉션 소개</a></li>
+                        <li><a href="/renaissance/list" title="한국 유성기 음반">한국 유성기 음반</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="예술가의 공간">예술가의 공간</a>
+                    <ul class="depth">
+                        <li><a href="/artspace/launyung" title="나운영 서재">나운영 서재</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="#">바로가기</a>
+                    <ul class="depth">
+                        <li><a href="https://artsarchive.arko.or.kr" target="_blank" rel="noopener noreferrer" title="아르코예술기록원 바로가기">아르코예술기록원</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="tel:02-760-4750" class="btn_tel" title="대표전화">
+                <dl>
+                    <dt>대표전화</dt>
+                    <dd>02-760-4750</dd>
+                </dl>
+            </a>
+        </div>
+    </div>
+    <!--// mobile -->
+    <a href="#" class="head_search" title="통합검색">통합검색</a>

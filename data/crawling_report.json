@@ -1,0 +1,20 @@
+{
+  "crawled_at": "2026-02-05T05:47:36.373444",
+  "total_artists": 505,
+  "details_collected": 505,
+  "collection_rate": 100.0,
+  "categories": {
+    "회화": 278,
+    "조각": 97,
+    "사진": 21,
+    "공예": 43,
+    "설치": 55,
+    "판화": 11
+  },
+  "career_stats": {
+    "education": 368,
+    "solo_exhibitions": 415,
+    "group_exhibitions": 352,
+    "awards": 240
+  }
+}

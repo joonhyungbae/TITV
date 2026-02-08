@@ -1,0 +1,35 @@
+\begin{table}[htbp]
+\centering
+\small
+\begin{threeparttable}
+\caption{Unified Specification: Conditional Stability HR from RCS(career year) $\times$ Stability Interaction}
+\label{tab:unified_specification}
+\begin{tabular}{r cc cc}
+\toprule
+ & \multicolumn{2}{c}{Korean Art} & \multicolumn{2}{c}{IMDb Film} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Career year & \HR{stability} & \pval{} & \HR{stability} & \pval{} \\
+\midrule
+0 & $1.068$ [0.895, 1.274] & 0.468 & $1.058$ [0.865, 1.293] & 0.584 \\
+5 & $1.110^{\dagger}$ [0.992, 1.242] & 0.068 & $1.061$ [0.890, 1.266] & 0.508 \\
+8 & $1.151^{*}$ [1.027, 1.290] & 0.015 & $1.063$ [0.904, 1.250] & 0.457 \\
+10 & $1.188^{**}$ [1.047, 1.349] & 0.008 & $1.065$ [0.914, 1.241] & 0.421 \\
+12 & $1.234^{**}$ [1.062, 1.433] & 0.006 & $1.066$ [0.923, 1.232] & 0.384 \\
+15 & $1.314^{**}$ [1.071, 1.613] & 0.009 & $1.068$ [0.936, 1.220] & 0.329 \\
+20 & $1.478^{*}$ [1.054, 2.072] & 0.024 & $1.072$ [0.954, 1.205] & 0.241 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Model fit:}} \\
+\quad AIC (RCS) & \multicolumn{2}{c}{4023.9} & \multicolumn{2}{c}{1750.2} \\
+\quad AIC (linear) & \multicolumn{2}{c}{4021.9} & \multicolumn{2}{c}{1748.1} \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Data-driven change-point ($\tau^*$):}} \\
+\quad Estimated $\tau^*$ [95\% CI] & \multicolumn{2}{c}{10 [6, 20]} & \multicolumn{2}{c}{7 [5, 11]} \\
+\addlinespace
+\quad Person-years / events & \multicolumn{2}{c}{3,972 / 363} & \multicolumn{2}{c}{24,107 / 146} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item \textit{Note.} Conditional stability hazard ratios from Cox time-varying models with restricted cubic spline (3 knots, Harrell percentiles) $\times$ network stability interaction. The same specification is applied identically to both datasets. Change-point $\tau^*$ estimated via profile-likelihood grid search over career years 5--20, with cluster-bootstrap 95\% CI (200 resamples). All covariates standardized ($z$-scores). Penalizer $\lambda = 0.01$. $^{*}$\pval{} $< 0.05$, $^{**}$\pval{} $< 0.01$, $^{***}$\pval{} $< 0.001$, $^{\dagger}$\pval{} $< 0.10$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

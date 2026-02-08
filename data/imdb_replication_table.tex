@@ -1,0 +1,31 @@
+\begin{table}[htbp]
+\centering
+\begin{threeparttable}
+\caption{Pilot Replication (IMDb): Director-Network Effects on Career Plateau in Film}
+\label{tab:imdb_replication}
+\begin{tabular}{lccccc}
+\toprule
+Predictor & Coef. & \HR{} & 95\% \CI{} & \pval{} \\
+\midrule
+Director stability & 0.077 & 1.080 & [0.972, 1.199] & 0.150 \\
+Director diversity & -0.058 & 0.944 & [0.841, 1.059] & 0.324 \\
+Career year & 0.000 & 1.000 & [0.881, 1.135] & 1.000 \\
+Stability $\times$ career year & 0.015 & 1.015 & [0.906, 1.137] & 0.800 \\
+Diversity $\times$ career year & 0.025 & 1.025 & [0.898, 1.171] & 0.714 \\
+Birth year & 0.036 & 1.037 & [0.937, 1.147] & 0.487 \\
+Cumulative credits & -0.012 & 0.988 & [0.880, 1.108] & 0.833 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Conditional stability \HR{} by career year:}} \\
+\quad Year 0 & & 1.056 & [0.865, 1.291] & 0.591 \\
+\quad Year 5 & & 1.061 & [0.890, 1.264] & 0.511 \\
+\quad Year 10 & & 1.065 & [0.914, 1.240] & 0.420 \\
+\quad Year 15 & & 1.069 & [0.937, 1.220] & 0.323 \\
+\quad Year 20 & & 1.073 & [0.955, 1.205] & 0.235 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item \textit{Note.} Time-varying Cox model on IMDb pilot sample (24,107 person-years, 500 actors, 146 plateau events). Director-level stability = cumulative film credits / unique directors. Plateau = 5-year gap without film credits. Directors serve as gatekeepers who select actors for roles, analogous to curators selecting artists for exhibitions. All covariates standardized ($z$-scores). Penalizer $\lambda = 0.01$. Conditional HR = exp($\beta_{\text{stability}} + \beta_{\text{interaction}} \times z_{\text{career year}}$). *\pval{} $< 0.05$, **\pval{} $< 0.01$, ***\pval{} $< 0.001$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

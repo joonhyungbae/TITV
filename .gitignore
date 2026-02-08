@@ -1,0 +1,20 @@
+# ── Python ────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# ── IDE / OS ──────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ── IMDb datasets (regenerate via: python code/26_imdb_fetch.py) ─────
+# Raw TSV dumps from https://datasets.imdbws.com (~1 GB total)
+data/imdb/
+
+# Generated intermediate data (run scripts 26→27→28 to reproduce)
+data/imdb_actor_credits.json
+data/imdb_panel.csv

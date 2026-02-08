@@ -1,0 +1,35 @@
+\begin{table}[htbp]
+\centering
+\small
+\begin{threeparttable}
+\caption{Why the Continuous Interaction is Null in IMDb: Power Analysis and Career-Length Restriction}
+\label{tab:power_restriction}
+\begin{tabular}{lcccc}
+\toprule
+\multicolumn{5}{l}{\textit{Panel A: Analytical power for detecting the Korean effect in IMDb}} \\
+\midrule
+Effect size & $\beta_{\text{int}}$ & Non-centrality & Power (\%) & \\
+\midrule
+0.50$\times$ Korean & 0.0565 & 0.977 & 16.4 & \\
+0.75$\times$ Korean & 0.0848 & 1.466 & 31.1 & \\
+1.00$\times$ Korean $\leftarrow$ & 0.1131 & 1.954 & 49.8 & \\
+1.25$\times$ Korean & 0.1413 & 2.443 & 68.5 & \\
+1.50$\times$ Korean & 0.1696 & 2.931 & 83.4 & \\
+2.00$\times$ Korean & 0.2261 & 3.909 & 97.4 & \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Panel B: Continuous interaction under career-length restriction (IMDb)}} \\
+\midrule
+Max career (yr) & Pre-decade (\%) & Interaction \HR{} & \pval{} & Cond.\ \HR{} yr 10 \\
+\midrule
+15 & 86.8 & 2.050 & 0.012 & 1.295 \\
+20 & 73.8 & 1.887 & 0.035 & 1.239 \\
+25 & 59.4 & 1.828 & 0.008 & 1.023 \\
+30 & 45.8 & 1.642 & 0.002 & 0.952 \\
+Full & 19.3 & 1.015 & 0.800 & 1.065 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item \textit{Note.} Panel A: Analytical power to detect the Korean interaction effect in the IMDb data structure at $\alpha = 0.05$. Panel B: IMDb data restricted to actors with career $\leq$ N years, re-standardized, with the same continuous interaction model. As the career distribution narrows, the pre-decade proportion increases and the continuous interaction gains leverage.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
