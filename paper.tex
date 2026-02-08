@@ -50,7 +50,13 @@
 
 % ========================================================
 \title{Time-Invariant Models, Time-Varying Effects:\\The Reversal of Network Embeddedness across Professional Careers}
-\author{}
+\author{
+  Joonhyung Bae \\
+  Graduate School of Culture Technology \\
+  KAIST (Korea Advanced Institute of Science and Technology) \\
+  Daejeon, South Korea \\
+  \texttt{jh.bae@kaist.ac.kr}
+}
 \date{}
 
 \begin{document}
@@ -58,15 +64,14 @@
 \maketitle
 
 \begin{abstract}
-\noindent Network--career research assumes that the effect of relational structure on outcomes is time-invariant.
-Among 495 elite Korean artists over seven decades (1929--2002), the association between network stability and plateau risk is absent early (\HR{} = 1.04, n.s.) but strengthens from year~10 (\HR{} = 1.20, \pval{} = 0.002) to year~20 (\HR{} = 1.39, \pval{} = 0.011), while the network size remains protective throughout (\HR{} = 0.70, \pval{} = 0.005).
-The pooled coefficient of 1.18 averages over these career stages, describing a statistical artifact that does not correspond to no actual career phase.
-Bidirectional feedback between network consolidation and productivity decline intensifies over career time, a finding that constrains all admissible causal models.
-Quasi-experimental evidence from institution closures supports \textit{evaluative redundancy---diminishing}---diminishing returns from repeated endorsements by the same gatekeepers---as a contributing forward-acting pathway; hazard ratios are best read as upper bounds on any forward-acting effect.
+\noindent Research on the career network treats the effect of the relational structure on outcomes as invariant with time.
+Among 495 elite Korean artists over seven decades (1929--2002), the association between network stability and career plateau risk is absent early but strengthens monotonically from year~10 to year~20, while network size remains protective throughout.
+The pooled coefficient averages over these stages, describing a statistical artifact that corresponds to no actual career phase, regardless of causal direction.
+Bidirectional feedback between network consolidation and productivity decline intensifies over career time, constraining all admissible causal models.
+Quasi-experimental evidence from institution closures supports \textit{evaluative redundancy---diminishing} returns from repeated endorsements by the same gatekeepers---as a forward-acting pathway.
 The association escalates across the achievement distribution.
-Three structural conditions -- concentrated gatekeeping, repeat evaluation by overlapping judges, and cumulative credentialing -- jointly predict where this reversal should replicate.
-A pilot replication in the film industry (IMDb; 500 actors, 24,107 person-years) supports the phase reversal: a data-driven change-point model identifies overlapping career-year thresholds in both datasets ($\tau^* = 10$ and $\tau^* = 7$ years, respectively), director-network stability is protective early but significantly increases plateau hazard in the post-threshold phase (\HR{} = 1.145, \pval{} = 0.019; structural break \pval{} = 0.009), and a career-length restriction experiment confirms that the null linear interaction reflects the career distribution, not effect absence.
-Replication code and data: \url{https://osf.io/6vxyr/?view_only=5d8e3c3f0cc54969b2a91a85822288a0}.
+A pilot replication in the film industry supports the phase reversal: a data-driven change-point model identifies overlapping thresholds in both datasets, and a structural break test confirms the pattern.
+Replication code and data: \url{https://github.com/joonhyungbae/TITV}.
 \end{abstract}
 
 \medskip
@@ -86,7 +91,7 @@ This article documents such a pattern and evaluates candidate mechanisms.
 
 Despite extensive research on networks and career inequality \citep{merton1968matthew, diprete2006cumulative, soda2021networks}, neither the bridge \citep{burt2004structural} nor the closure perspective \citep{uzzi1997social} explains a puzzling temporal pattern: many early-career individuals form the kinds of network ties that theory would predict to be beneficial, yet still fail to sustain their careers.
 \citet{lee2022escaping} showed that closed networks aid early survival but must be abandoned for long-term success, while \citet{soda2021networks} demonstrated that network stability erodes creative benefits over time.
-Yet no study has traced a reversal in the \textit{direction} of the network effect across the full career trajectory.
+However, no studies have traced a reversal in the \textit{direction} of the network effect across the entire career trajectory.
 
 I argue that a fundamental but overlooked problem underlies this literature: \textit{temporal nonstationarity}.
 If the balance between the compounding returns and compounding constraints of embeddedness shifts over career time, then pooled coefficients describe a statistical artifact that corresponds to no real career stage, a finding that holds regardless of the causal direction of the network--career relationship.
@@ -94,13 +99,13 @@ As one candidate mechanism, I propose \textit{evaluative redundancy}: in profess
 The result is a phase reversal: the same network stability that is innocuous early becomes a liability in mid-to-late career, a pattern that time-invariant models cannot detect.
 
 The empirical implication is direct: any study that reports a moderate, time-invariant network coefficient in a gatekept profession may be describing a statistical artifact that corresponds to no real phase of the career process.
-This concern would apply to academic science, clinical medicine, and other credentialing professions, where stability ratios at the journal-level or hospital-level can be computed from existing data, if the phase reversal generalizes beyond the present setting; whether it does, is an empirical question addressed in Section~\ref{sec:scope}.
+This concern would apply to academic science, clinical medicine, and other credentialing professions, where stability ratios at the journal-level or hospital-level can be computed from existing data if the phase reversal generalizes beyond the present setting; whether it does, is an empirical question addressed in Section~\ref{sec:scope}.
 
 To test this claim, I used the Korean art world (1929--2002) as a strategic research site, drawing on the DA-Arts national digital archive covering 505 elite visual artists.
 The setting is chosen not for its intrinsic interest but because it satisfies three conditions that few other empirical contexts jointly provide for detecting temporal non-stationarity in network effects.
 First, every career event---exhibitions, awards, biennale participations, museum collections, residencies---is linked to a specific institution, providing a complete record of institutional encounters at a level of relational granularity rarely available even in bibliometric data.
 Second, the ``master'' designation restricts the sample to an elite population whose careers have reached completion, largely eliminating right-censoring and providing the long trajectories (up to 44 years) needed to detect a pattern that manifests only after a decade.
-Third, the institutional structure exhibits conditions analogous to other gatekept professions: the Gini coefficient of institutional event concentration ($0.66$) falls within the range reported for author-level citation concentration in the sciences ($0.65$--$0.70$; \citealt{nielsen2021citation}), though the units differ (institutional events vs.\ citations); the gatekeeping logic, entry governed by prior endorsements from a concentrated set of venues, parallels the role of top-tier journals in science or teaching hospitals in medicine.
+Third, the institutional structure exhibits conditions analogous to other gatekeeper professions: the Gini coefficient of institutional event concentration ($0.66$) falls within the range reported for author-level citation concentration in the sciences ($0.65$--$0.70$; \citealt{nielsen2021citation}), though the units differ (institutional events vs.\ citations); the gatekeeping logic, entry governed by prior endorsements from a concentrated set of venues, parallels the role of top-tier journals in science or teaching hospitals in medicine.
 The 73-year observation window encompasses four distinct institutional regimes, enabling tests of whether the pattern replicates across structurally different environments.
 
 Methodologically, I employ time-varying Cox proportional hazard models with career-year interactions to estimate the phase-specific network--career association, supplemented by E-value sensitivity analysis \citep{vanderweele2017sensitivity} to bound unmeasured confounding and model-free triangulation via Hidden Markov Models and XGBoost/SHAP to confirm the phase transition under different functional-form assumptions.
@@ -108,7 +113,7 @@ The key quasi-experimental test exploits the exogenous disappearance of exhibiti
 
 The findings contribute to three areas of sociological inquiry, layered by the strength of the evidence.
 First, and most definitively, I document temporal non-stationarity as a general modeling problem for network--career research.
-In the present data, the pooled stability coefficient of 1.18 averages over a null effect in the first decade (\HR{} = 1.04) and a substantial effect thereafter (\HR{} = 1.39 at year 20), describing a statistical artifact that corresponds to no actually observed career stage.
+In the present data, the pooled stability coefficient of 1.18 averages over a null effect in the first decade (\HR{} = 1.04) and a substantial effect thereafter (\HR{} = 1.39 in year 20), describing a statistical artifact that corresponds to no actually observed career stage.
 This finding holds regardless of causal direction: under any admissible causal model, time-invariant specifications are misspecified.
 Second, I show that the bidirectional feedback between network structure and career outcomes is itself career-stage dependent---a finding that constrains the set of admissible causal models beyond what pooled estimates reveal.
 Third, quasi-experimental evidence from institution closures and productivity-conditioned models supports a forward-acting evaluative redundancy component, though the precise causal decomposition remains open; hazard ratios are best read as upper bounds on any forward-acting effect.
@@ -139,18 +144,18 @@ These studies converge on a common intuition -- network effects are not time--in
 
 What mechanism could produce a phase reversal?
 Before adjudicating specific mechanisms, a general prediction can be stated: if embeddedness generates compounding \textit{constraints} alongside compounding returns, and if the balance between the two shifts over career time, the association between network stability and career stagnation should strengthen as careers mature.
-This prediction is testable without resolving causal direction---it follows from the temporal structure of the process alone.
+This prediction is testable without resolving causal direction--it follows from the temporal structure of the process alone.
 Two candidate mechanisms can generate this pattern, operating through different causal pathways.
 
 \paragraph{Candidate A: Evaluative redundancy (forward-acting).}
-In gatekept professions---art worlds \citep{becker1982art}, scientific publishing, clinical credentialing---a concentrated set of institutions controls access to recognition, and repeated evaluation by the same gatekeepers is the norm.
+In gatekept professions -- art worlds \citep{becker1982art}, scientific publishing, clinical credentialing -- a concentrated set of institutions controls access to recognition, and repeated evaluation by the same gatekeepers is the norm.
 Toward the beginning of a career, each new institutional endorsement provides an independent evaluative signal: a first exhibition at a prestigious gallery, a first publication in a top journal, a first appointment at a teaching hospital.
 However, as careers mature, repeated endorsements from the \textit{same} source become information-deficient.
 A tenth exhibition at the same gallery signals persistence, not breadth; a fifteenth paper in the same journal signals specialization, not growth.
 The operative dimension is \textit{source identity}: after a decade of career activity, a new endorsement from a \textit{different} high-status institution signals development, whereas another endorsement from the \textit{same} institution signals predictability.\footnote{\citet{peters2022matthew}, analyzing 50 years of arts grant decisions in Flanders, came closest to documenting this dynamic: they found a Matthew effect that \textit{changed over time}, with panels increasingly favoring incumbents---but did not connect this to the informational content of repeated endorsement by the same source.}
 
-I propose the term \textit{evaluative redundancy} for this candidate mechanism: the diminishing informational returns generated by repeated endorsements from the same institutional source.
-The concept differs from cumulative advantage, which predicts compounding returns from \textit{any} endorsement; from network prestige, which operates \textit{between} prestige levels; and from Burt's constraint, which captures contemporaneous structural position rather than the \textit{relational history} of institutional engagement.\footnote{It also differs from adjacent constructs in the embeddedness literature. Uzzi's \textit{overembeddedness} describes a structural state at a point in time; evaluative redundancy is a temporal process in which the costs of repeated ties \textit{accumulate}. Coleman's \textit{closure} treats information control as a benefit; evaluative redundancy instead highlights source-specific informational depletion as a liability. And whereas the ``two faces'' of closure in \citet{gargiulo2009two} coexist simultaneously, evaluative redundancy proposes that the balance between support and constraint \textit{shifts} as career time increases.}
+The for this candidate mechanism: the diminishing informational returns generated by repeated endorsements from the same institutional source.
+ endorsement; from network prestige, which operates prestige levels; and from Burt's constraint, which captures contemporaneous structural position rather than the \footnote{Uzzi's \textit{overembeddedness} describes a structural state at a point in time; evaluative redundancy is a temporal process in which the costs of repeated ties \textit{accumulate}; Coleman's \textit{closure} treats information control as a benefit; evaluative redundancy instead highlights source-specific informational depletion as a liability; And whereas the ``two faces'' of closure in \citet{gargiulo2009two} coexist simultaneously, evaluative redundancy proposes that the balance between support and constraint \textit{shifts} as career time increases.}
 
 \paragraph{Candidate B: Feedback intensification (reverse-causal or bidirectional).}
 An observationally equivalent pattern arises under reverse causality: artists whose productivity is already declining may cease forming new partnerships, mechanically accumulating network stability.
@@ -174,10 +179,10 @@ This yields a prediction that cuts against the standard Matthew effect: the cost
 \citeauthor{sinatra2016}'s (\citeyear{sinatra2016}) ``random impact rule,'' \citeauthor{wang2019}'s (\citeyear{wang2019}) finding that early-career setbacks can breed later success, \citeauthor{liu2021}'s (\citeyear{liu2021}) finding that hot streaks require exploration before exploitation, and \citeauthor{wapman2022}'s (\citeyear{wapman2022}) documentation of self-reinforcing prestige hierarchies in faculty hiring all suggest that cumulative advantage generates compounding constraints alongside compounding returns.}
 
 \paragraph{Scope conditions.}
-The evaluative redundancy mechanism requires three structural conditions to generate the predicted phase reversal.
+The evaluation redundancy mechanism requires three structural conditions to generate the predicted phase reversal.
 First, \textit{concentrated gatekeeping}: a small number of institutional actors (curators, directors, editors) control access to career-defining opportunities, so that the identity of the evaluator carries informational weight.
 Second, \textit{repeat evaluation by overlapping judges}: professionals encounter the same gatekeepers across multiple career episodes, enabling endorsement redundancy to accumulate.
-Third, \textit{cumulative credentialing}: career advancement depends on a visible track record of institutionally endorsed achievements, so that the pattern of endorsement sources---not merely their quantity---shapes future opportunities.
+Third, \textit{cumulative credentialing}: career advancement depends on a visible track record of institutionally endorsed achievements so that the pattern of endorsement sources -- not merely their quantity---shapes future opportunities.
 These conditions are satisfied in the Korean art world (galleries and curators), the film industry (directors who repeatedly cast actors), and---to a lesser degree---academic science (journal editors and peer reviewers).
 The theory predicts that the phase reversal should be strongest in fields where all three conditions are maximally concentrated, and absent where gatekeeping is decentralized or evaluation is anonymous.
 
@@ -211,7 +216,7 @@ The analysis draws on DA-Arts (Hanguk Yesul Dijiteol Akaibu; Korean Arts Digital
 The database compiles career profiles for 505 modern Korean master artists, of whom 495 have documented career events.
 The archive contains 16,424 structured career events spanning 1929--2002, including solo and group exhibitions, awards, biennale participations, museum collections, residencies, professorships, and publications.
 This setting offers three advantages for studying the network--career relationship.
-First, every career event is linked to a specific institution, providing a complete record of institutional encounters---a level of relational granularity rarely available in other professions.
+First, every career event is linked to a specific institution, providing a complete record of institutional encounters -- a level of relational granularity rarely available in other professions.
 Second, the ``master'' designation restricts the sample to an elite population whose careers have reached completion, largely eliminating right-censoring and providing the long trajectories (up to 44 years) needed to detect a pattern that manifests only after a decade.
 Third, the institutional structure is \textit{structurally isomorphic} to other gatekept professions: a concentrated set of exhibition venues controls access to recognition, with entry governed by prior endorsements.
 The Gini coefficient of institutional event concentration ($0.66$) falls within the range reported for citation concentration in the sciences ($0.65$--$0.70$; \citealt{nielsen2021citation}), suggesting a comparable level of reward inequality.
@@ -223,7 +228,7 @@ Administrative right-censoring was applied in 2002.
 
 \paragraph{Data construction.}
 The analytical dataset was constructed by programmatically crawling all 505 artist profiles from the DA-Arts public web interface and parsing the semi-structured Korean-language text into a structured bilingual dataset.
-Full details of the construction pipeline are provided in Appendix~\ref{app:data_construction}; the complete pipeline and enriched dataset are publicly available (see Data and Code Availability).
+Full details of the construction pipeline are provided in the Appendix~\ref{app:data_construction}; the complete pipeline and enriched dataset are publicly available (see Data and Code Availability).
 
 \subsection{Sample Description}
 
@@ -309,7 +314,7 @@ Identification of the forward path requires three assumptions:
 (i) no unmeasured common cause of $S_t$ and $P_t$ conditional on $(A_t, t, N_t)$;
 (ii) temporal precedence, such that $S_{t-k}$ is determined before $P_t$ (operationalized through lag-2 specifications);
 and (iii) no direct effect of lagged confounders on the outcome except through the measured covariates.
-The lagged specifications ($S_{t-2}$) address assumption (ii) by blocking the contemporaneous reverse path; The E-values \citep{vanderweele2017sensitivity} bound assumption (i); measured covariates ($A_t$, $t$, $N_t$) close additional back-door paths.
+The lagged specifications ($S_{t-2}$) address assumption (ii) by blocking the contemporaneous reverse path; The bound assumption of E-values \citep{vanderweele2017sensitivity} (i); measured covariates ($A_t$, $t$, $N_t$) close additional back-door paths.
 None of these eliminates all threats simultaneously, and definitive causal identification would require exogenous shocks to network structure that the present data do not contain.
 Section~\ref{sec:causal} reports the results of each strategy and develops an explicit interpretive framework for reading the hazard ratios in forward-acting, reverse-causal, and bidirectional scenarios.
 
@@ -349,10 +354,10 @@ To ensure that the same functional form is applied identically across both datas
 h(t \mid S_t, \mathbf{X}_t) = h_0(t)\,\exp\!\left(\beta_S\, S_t + \beta_{L}\, S_t \cdot t_z + \sum_{j=1}^{J} \beta_{Rj}\, S_t \cdot f_j(t) + \boldsymbol{\gamma}' \mathbf{X}_t\right)
 \label{eq:rcs_hazard}
 \end{equation}
-where $f_j(t)$ are the non-linear RCS basis functions of career year.
+where $f_j(t)$ are the non-linear RCS basis functions of the career year.
 This specification captures non-linear threshold effects---the flat-then-rising pattern predicted by the theory---without imposing linearity, and adapts automatically to different career-length distributions.
-A profile-likelihood change-point model supplements the RCS specification: for each candidate $\tau \in \{5, 6, \ldots, 20\}$, phase-specific stability coefficients are estimated, and the optimal $\tau^*$ is selected by AIC, with cluster-bootstrap 95\% CIs.
-This data-driven approach eliminates the need for the researcher to specify the cutpoint \textit{a priori} (Section~\ref{sec:pilot_replication}).
+A profile-likelihood change-point model complements the RCS specification: for each candidate $\tau \in \{5, 6, \ldots, 20\}$, phase-specific stability coefficients are estimated and AIC selects the optimal $\tau^*$ with a cluster-bootstrap of 95\% CI.
+This data-driven approach eliminates the need for the researcher to specify the cut-off \textit{point a priori} (Section~\ref{sec:pilot_replication}).
 
 \paragraph{Causal identification.}
 Three strategies address confounding and reverse causality: lagged independent variables ($t-1$ through $t-3$), Granger-type temporal ordering tests, and E-values \citep{vanderweele2017sensitivity}.
@@ -391,8 +396,8 @@ Period & Active venues (approx.) & Plateau rate (\%) \\
 \end{table}
 
 \paragraph{Milestone protection.}
-Solo exhibitions and awards confer strong, long-lived but decaying reductions in plateau hazard (solo: \HR{} = 0.48 at 1 year, decaying to 0.67 at 10 years, half-life $\approx$ 20.5 years; awards: \HR{} = 0.63 at 1 year, half-life $\approx$ 17.5 years; both \pval{} $< 0.001$).
-Even strong endorsements do not permanently insulate careers from the consequences of network consolidation.
+Solo exhibitions and awards confer strong, long-lived but decaying reductions in plateau hazard (solo: \HR{} = 0.48 at 1 year, deteriorating to 0.67 at 10 years, half-life $\approx$ 20.5 years; awards: \HR{} = 0.63 at 1 year, half-life $\approx$ 17.5 years; both \pval{} $< 0.001$).
+Even strong endorsements do not permanently protect careers from the consequences of network consolidation.
 
 \paragraph{Robustness to alternative plateau definitions.}
 \label{sec:plateaus_robust}
@@ -413,18 +418,18 @@ At career onset, stability has no effect (\HR{} = 1.04, \pval{} = 0.716).
 By year 10, the association is significant (\HR{} = 1.20, 95\% \CI{}: 1.07--1.35, \pval{} = 0.002), and strengthens monotonically: \HR{} = 1.29 at year 15 (\pval{} = 0.003) and \HR{} = 1.39 at year 20 (\pval{} = 0.011).
 The interaction term is positive ($\beta = 0.115$) but does not reach significance on its own (\pval{} = 0.155), a power limitation expected given the substantial correlation between stability and career year ($r = 0.41$; post hoc power $\approx$ 42\%).
 
-The most direct demonstration of the phase reversal comes from a tertile career-phase model that divides the career into three stages (years 0--7, 8--14, 15+) and estimates phase-specific stability HRs, avoiding the multicollinearity problem of the continuous interaction entirely.
+The most direct demonstration of phase reversal comes from a tertile career-phase model that divides the career into three stages (years 0--7, 8--14, 15+) and estimates phase-specific stability HRs, avoiding the multicollinearity problem of the continuous interaction entirely.
 The result is a monotonic gradient: \HR{} = 1.09 (\pval{} = 0.165) in the early phase, \HR{} = 1.20 (\pval{} = 0.041) in the mid phase, and \HR{} = 1.46 (\pval{} = 0.048) in the late phase.
 This direct demonstration of individually significant escalation across career stages constitutes the single strongest piece of evidence for temporal non-stationarity: stability is innocuous early, marginally costly in the middle years, and substantially costly late.
 
 Five additional tests corroborate this interpretation: a binary specification (stability $\times$ $I$[career year $\geq$ 10]) yields a significant interaction (HR = 1.34, \pval{} = 0.009) with a post-decade conditional \HR{} of 1.44 (\pval{} $<$ 0.001); cluster bootstrap CIs exclude 1.0 from year 10 onward; the Schoenfeld residual test independently rejects the proportional hazards assumption for stability (\pval{} = 0.030); the AIC favors the interaction model; and three model-free triangulations (Section~\ref{sec:triangulation}) locate the phase transition in the same career-year window.
-Conditional hazard ratios---the substantively meaningful quantities---are significant at each career year from 10 onward (Figure~\ref{fig:stability_hr}), supporting Hypothesis~2a.
-In absolute terms, moving from $-1$ SD to $+1$ SD in network stability increases the five-year plateau probability by 5.4 percentage points at career year 10 (from 13.5\% to 18.9\%) and by 7.6 percentage points at year 20 (from 9.0\% to 16.6\%)---a moderate absolute effect whose practical significance lies in its monotonic escalation over career time.
+Conditional hazard ratios -- the substantively meaningful quantities -- are significant in each career year from 10 to (Figure~\ref{fig:stability_hr}), supporting Hypothesis~2a.
+In absolute terms, moving from $-1$ SD to $+1$ SD in network stability increases the probability of the five-year plateau by 5.4 percentage points in career year 10 (from 13.5\% to 18.9\%) and by 7.6 percentage points in year 20 (from 9.0\% to 16.6\%) -- a moderate absolute effect whose practical significance lies in its monotonic escalation over career time.
 
 Phase-split models corroborate the continuous estimate: stability is non-significant in the early career (\HR{} = 1.09, \pval{} = 0.188, 326 events) but significant after the decade (\HR{} = 1.39, \pval{} = 0.003, 37 events).
 The pattern is robust to alternative plateau definitions and cut-off points (Section~\ref{sec:plateaus_robust}).
 
-Three additional analyses confirm the robustness of the post-decade finding: a logistic regression on the post-decade subsample (OR = 1.41, \pval{} = 0.012), cutpoint sensitivity from year 7 to 13 (stability HRs consistently above 1.0, significant at cutpoints 8--11), and a leave-one-out analysis (all 37 specifications yield HR $> 1.0$, all \pval{} $< 0.05$).
+Three additional analyzes confirm the robustness of the post-decade finding: a logistic regression in the post-decade subsample (OR = 1.41, \pval{} = 0.012), the sensitivity of the cut point from year 7 to 13 (stability HR consistently above 1.0, significant at cut points 8--11), and a leave-one-out analysis (all 37 specifications yield HR $> 1.0$, all \pval{} $< 0.05$).
 
 
 % ---- Table 1: Full-Sample Interaction Model ----
@@ -499,21 +504,21 @@ When entered simultaneously with stability, the acquisition rate retains its eff
 \label{sec:causal}
 
 The temporal non-stationarity documented above is a finding independent of causal direction.
-The analyses in this section address a further question: to what degree does the association reflect forward-acting evaluative redundancy, reverse-causal feedback, or both?
-The evidence is organized in four parts: the temporal structure of bidirectional feedback, quasi-experimental evidence from institution closures, sensitivity analyses, and an interpretive summary.
+The analyzes in this section address a further question: to what degree does the association reflect forward-acting evaluative redundancy, reverse-causal feedback, or both?
+The evidence is organized in four parts: the temporal structure of bidirectional feedback, quasi-experimental evidence from institution closures, sensitivity analyzes, and an interpretive summary.
 
 \paragraph{Bidirectional feedback and its temporal structure.}
-If the association were driven entirely by contemporaneous reverse causality---artists stagnating \textit{now} mechanically accumulating stability \textit{now}---then lagged stability should lose predictive power once the temporal gap between exposure and outcome eliminates the simultaneity.
+If the association were driven entirely by contemporaneous reverse causality--artists stagnating \textit{now} mechanically accumulating stability \textit{now-then} lagged stability should lose predictive power once the temporal gap between exposure and outcome eliminates the simultaneity.
 The data reject this account.
 The stability measured two years earlier retains a strong predictive power (\HR{} = 1.21, \pval{} = 0.007; conditional HR in year 10 = 1.23, \pval{} = 0.002).
-Critically, the effect is slightly \textit{stronger} at lag-1 (\HR{} = 1.25) than contemporaneously (\HR{} = 1.18), and the lag-2 specification---the preferred identification strategy---yields a conditional HR at year 10 of 1.23 (\pval{} = 0.002) and at year 15 of 1.31 (\pval{} = 0.004).
+Critically, the main effect of the full-sample is slightly \textit{stronger} at lag-1 (\HR{} = 1.25) than contemporaneously (\HR{} = 1.18), while the post-decade estimates in Table~\ref{tab:causal_ordering} show a comparable pattern. The lag-2 specification, the preferred identification strategy, yields a conditional HR at year 10 of 1.23 (\pval{} = 0.002) and at year 15 of 1.31 (\pval{} = 0.004).
 The effect attenuates only at lag-3 (\HR{} = 1.14, \pval{} = 0.106), where sample attrition reduces statistical power (117 events vs.\ 166 at lag-1).
 
 Short-horizon Granger tests reveal bidirectional feedback, with the reverse-causal channel stronger at the annual horizon: productivity changes predict subsequent stability ($\beta = 0.044$, \pval{} = 0.019), while the forward path is directionally consistent but non-significant ($\beta = 0.019$, \pval{} = 0.164).
-At 2- and 3-year horizons, both channels attenuate and become jointly non-significant (forward 2-yr: joint $p = 0.306$; reverse 2-yr: joint $p = 0.176$; forward 3-yr: joint $p = 0.260$; reverse 3-yr: joint $p = 0.279$), indicating that the Granger asymmetry is a short-horizon phenomenon.
+At 2- and 3-year horizons, both channels attenuate and become jointly non-significant (forward 2-year: joint $p = 0.306$; reverse 2-year: joint $p = 0.176$; forward 3-year: joint $p = 0.260$; reverse 3-year: joint $p = 0.279$), indicating that the Granger asymmetry is a short-horizon phenomenon.
 
 Crucially, a stage-specific decomposition shows that this asymmetry is concentrated in the pre-decade career window.
-In the first decade, the reverse path is marginally significant ($\beta = 0.034$, \pval{} = 0.061), while the forward path is significant and \textit{negative} ($\beta = -0.065$, \pval{} = 0.003)---consistent with early-career stability facilitating (rather than hindering) productivity growth.
+In the first decade, the reverse path is marginally significant ($\beta = 0.034$, \pval{} = 0.061), while the forward path is significant and \textit{negative} ($\beta = -0.065$, \pval{} = 0.003), consistent with stability in the early-career that facilitates (rather than hinders) productivity growth.
 In the post-decade window, \textit{neither} channel reaches significance (forward: $\beta = 0.018$, \pval{} = 0.306; reverse: $\beta = 0.044$, \pval{} = 0.152).
 This is itself a finding: the feedback loop between productivity decline and network consolidation is career-stage dependent, concentrated in the pre-decade window where it is expected on theoretical grounds.
 If evaluative redundancy is a slowly accumulating process whose costs emerge over a decade-long horizon, annual cross-lagged regressions are poorly suited to detect it; the Cox model's career-year interaction is the more appropriate test.
@@ -557,10 +562,10 @@ Defining ``closure'' as an institution whose last recorded event precedes 1997 b
 The primary result comes from a logistic regression controlling for birth year, career year at closure, and cumulative achievement: treated artists---forced to diversify by the loss of a primary venue---exhibit a significantly lower post-closure plateau rate than controls (55.2\% vs.\ 60.9\%; adjusted OR $= 0.57$, \pval{} $= 0.024$).\footnote{A Fisher exact test, which does not adjust for covariates, yields a directionally consistent but underpowered estimate (OR $= 0.79$, \pval{} $= 0.315$), reflecting its lower sensitivity in the presence of covariate imbalance.}
 Propensity score matching on five pre-closure covariates (birth year, career year, cumulative achievement, pre-closure network stability, and pre-closure productivity) produces 184 matched pairs and a substantially larger treatment effect (matched OR $= 0.41$, \pval{} $< 0.001$; ATT $= -20.7$ percentage points), confirming that covariate-adjusted estimates consistently favor the treated group.
 
-A dose-response specification using continuous pre-closure exposure share yields a significant gradient: each standard-deviation increase in institutional reliance at the time of closure is associated with lower post-closure plateau odds (OR $= 0.77$, \pval{} $= 0.039$), and this result survives the addition of a pre-closure productivity trend control (OR $= 0.77$, \pval{} $= 0.037$).
-The result is robust to varying the closure cutoff between 1993 and 1999 (Fisher OR $= 0.53$, \pval{} $= 0.027$ at the most inclusive definition).
-An event study specification estimating relative-year coefficients from $t-5$ to $t+5$ around closure shows that post-treatment coefficients are uniformly negative (significant at $t+4$: $\beta = -0.18$, \pval{} $= 0.006$), though pre-trend parallelism is imperfect (joint Wald \pval{} $= 0.019$), motivating the propensity score approach as the primary quasi-experimental estimator (Figure~\ref{fig:closure_es}).
-Taken together, the logistic, propensity-matched, dose-response, and productivity-conditioned closure analyses provide convergent quasi-experimental evidence for a forward-acting component: artists who were forced to diversify more---and whose diversification was not driven by their own productivity trajectories---show lower subsequent plateau risk.
+A dose-response specification using the continuous pre-closure exposure share yields a significant gradient: each standard-deviation increase in institutional reliance at the time of closure is associated with lower post-closure plateau odds (OR $= 0.77$, \pval{} $= 0.039$), and this result survives the addition of a pre-closure productivity trend control (OR $= 0.77$, \pval{} $= 0.037$).
+The result is robust to varying the closure cutoff between 1993 and 1999 (Fisher OR $= 0.53$, \pval{} $= 0.027$ in the most inclusive definition).
+An event study specification that estimates the relative-years coefficients from $t-5$ to $t+5$ around the closure shows that the post-treatment coefficients are uniformly negative (significant at $t+4$: $\beta = -0.18$, \pval{} $= 0.006$), although the parallelism before the trend is imperfect (Wall \pval{} $= 0.019$), motivating the propensity score approach as the primary quasi-experimental estimator (Figure~\ref{fig:closure_es}).
+Taken together, logistic, propensity-matched, dose-response, and productivity-conditioned closure analyzes provide convergent quasi-experimental evidence for a forward-acting component: artists who were forced to diversify more, and whose diversification was not driven by their own productivity trajectories, show lower subsequent plateau risk.
 
 \begin{figure}[h]
 \centering
@@ -570,10 +575,10 @@ Taken together, the logistic, propensity-matched, dose-response, and productivit
 \end{figure}
 
 \paragraph{Sensitivity and bounds.}
-E-values \citep{vanderweele2017sensitivity} quantify the minimum confounding strength required to explain each finding (Table~\ref{tab:evalue}).
+The E-values \citep{vanderweele2017sensitivity} quantify the minimum confounding strength required to explain each finding (Table~\ref{tab:evalue}).
 For the conditional stability HR at year 10, the E-value is 1.69 (lagged: 1.76); at year 20, it reaches 2.12, indicating that confounding explanations for the \textit{strengthening} pattern would need to grow implausibly large over career time.
-Network size shows the greatest robustness (E-value = 2.22).
-Burt's constraint does not show an independent association once size and stability are controlled (\HR{} = 1.05, \pval{} = 0.617).
+The size of the network shows the greatest robustness (E-value = 2.22).
+The Burt constraint does not show an independent association once size and stability are controlled (\HR{} = 1.05, \pval{} = 0.617).
 
 \begin{table}[htbp]
 \centering
@@ -599,17 +604,17 @@ Lag-2 conditional HR at yr 10 & 1.23 & [1.08, 1.40] & 1.76 & 1.36 \\
 \end{threeparttable}
 \end{table}
 
-A productivity-conditioned lag model directly tests the reverse-causal account: adding lagged annual production trend to the lag-2 Cox model produces only 6.9\% attenuation of the stability effect (from \HR{} = 1.23 to \HR{} = 1.21, \pval{} = 0.006), with the conditional HR at year 10 remaining significant at 1.20 (\pval{} = 0.008).
+A productivity-conditioned lag model directly tests the reverse-causal account: adding the lagged annual production trend to the lag-2 Cox model produces only 6.9\% attenuation of the stability effect (from \HR{} = 1.23 to \HR{} = 1.21, \pval{} = 0.006), with the conditional HR in year 10 remaining significant at 1.20 (\pval{} = 0.008).
 Among artist-years where annual production is at or above the artist's own historical average---a subsample that excludes the mechanical reverse-causal pathway by construction---network stability retains a directionally consistent association (\HR{} = 1.22, \pval{} = 0.083).
 An artist-demeaned linear probability model with artist fixed effects confirms that within-artist variation in network stability predicts plateau onset (coefficient = 0.029, \pval{} $<$ 0.001, $n = 3{,}427$ person-years, 101 events across 224 artists), ruling out between-artist sorting.
-Lagged stability $\times$ career stage consistently outperforms lagged productivity in out-of-sample prediction ($\Delta$AUC = $+0.07$ to $+0.42$ across lags 1--5).
-A nested model sequence confirms that the post-decade stability effect is not an artifact of omitted variables (stability \HR{} = 1.35--1.39 across five progressively controlled specifications, all \pval{} $\leq$ 0.003; Appendix Table~\ref{tab:nested_models}).
+The lagged stability $\times$ career stage consistently outperforms the lagged productivity in the prediction outside the sample ($\Delta$AUC = $+0.07$ to $+0.42$ for lags 1--5).
+A nested model sequence confirms that the post-decade stability effect is not an artifact of omitted variables (stability \HR{} = 1.35--1.39 in five progressively controlled specifications, all \pval{} $\leq$ 0.003; Appendix Table~\ref{tab:nested_models}).
 
 \paragraph{Interpretive summary.}
 The evidence supports a three-layered conclusion.
 
 First, temporal non-stationarity is established regardless of causal direction.
-The pooled stability coefficient of 1.18 averages over a null effect early (\HR{} = 1.04) and a substantial effect later (\HR{} = 1.39 at year 20), describing a statistical artifact that corresponds to no actual career stage.
+The pooled stability coefficient of 1.18 averages over a null effect early (\HR{} = 1.04) and a substantial effect later (\HR{} = 1.39 in year 20), describing a statistical artifact that does not correspond to no actual career stage.
 Under any admissible causal model, time-invariant specifications are misspecified.
 
 Second, the bidirectional feedback loop is itself career-stage dependent.
@@ -618,13 +623,13 @@ Whether one reads this as an intensifying reverse-causal spiral or as a compound
 
 Third, a forward-acting component survives quasi-experimental tests.
 The productivity-conditioned lag model retains 93\% of the stability effect after controlling for productivity trends (\HR{} = 1.21, \pval{} = 0.006).
-The propensity-matched closure analysis yields a matched OR of 0.41 (\pval{} $< 0.001$) with a dose-response gradient (OR $= 0.77$, \pval{} = 0.039) that survives productivity controls.
-These results support Hypothesis~2b, though definitive causal decomposition requires future designs with more exogenous variation.
-Hazard ratios are best read as upper bounds on any forward-acting effect.
+The propensity-matched closure analysis produces a matched OR of 0.41 (\pval{} $< 0.001$) with a dose-response gradient (OR $= 0.77$, \pval{} = 0.039) that survives productivity controls.
+These results support Hypothesis~2b, although definitive causal decomposition requires future designs with more exogenous variation.
+Hazard ratios are best read as upper bounds in any forward-acting effect.
 
 \paragraph{Period-specific robustness.}
 The 73-year observation window traverses four institutional regimes during which high stability may reflect institutional scarcity in early periods but deliberate partner selection in later ones.
-A period-adjusted plateau definition (conditional stability \HR{} at year 10 = 1.18, \pval{} = 0.007) and a regime-interaction model (joint Wald \pval{} = 0.495, with directionally positive stability effects in three of four regimes) confirm that the pattern is not period-specific.
+A period-adjusted plateau definition (conditional stability \HR{} at year 10 = 1.18, \pval{} = 0.007) and a regime-interaction model (Wild-Wald-Joint \pval{} = 0.495, with directionally positive stability effects in three of four regimes) confirm that the pattern is not period-specific.
 The use of \textit{career year} as the temporal axis absorbs calendar-specific institutional shocks.
 
 \subsection{Escalating Entrenchment Cost Across the Achievement Distribution}
@@ -636,7 +641,7 @@ at \textit{low} achievement (P10), stability has no effect (\HR{} = 1.06, \pval{
 at the \textit{median} (P50), it approaches significance (\HR{} = 1.12, \pval{} = 0.051);
 at P75, stability is a clear liability (\HR{} = 1.22, \pval{} = 0.005);
 at P90, the cost is highest (\HR{} = 1.38, \pval{} = 0.011).
-The gradient continues beyond P90: at the extreme of the achievement distribution (approximately CV $\approx$ 135), the conditional stability \HR{} peaks at 1.80 (\pval{} = 0.049), though point estimates in this range carry wide confidence intervals due to data sparsity.
+The gradient continues beyond P90: at the extreme of the achievement distribution (approximately CV $\approx$ 135), the conditional stability \HR{} peaks at 1.80 (\pval{} = 0.049), although the point estimates in this range carry wide confidence intervals due to the lack of data.
 
 This pattern qualifies standard formulations of cumulative advantage.
 \citet{merton1968matthew}, \citet{diprete2006cumulative}, and experimental tests of Matthew effects \citep{bol2018} predict a monotonically decreasing risk with recognition; the escalating cost pattern is inconsistent with this prediction.
@@ -677,21 +682,21 @@ The significance transition threshold occurs at CV = 29.8 (P51; \pval{} = 0.047)
 \subsection{Institutional Logic and Career Archetype Heterogeneity}
 
 The entrenchment pattern is invariant across institutional logics and career archetypes: the stability--plateau association is driven by structural repetition in specific institutions rather than by the evaluative logic (commercial vs.\ symbolic) governing encounters, and the joint archetype $\times$ stability interaction is non-significant ($\chi^2 = 7.60$, $df = 4$, \pval{} = 0.107), indicating broad generalizability.
-Full results, including logic-specific and archetype-specific estimates, are reported in Appendix~\ref{app:institutional_logic}.
+The complete results, including logic-specific and archetype-specific estimates, are reported in the Appendix~\ref{app:institutional_logic}.
 
 \subsection{Triangulation Across Functional Forms}
 \label{sec:triangulation}
 
 The Cox model's parametric assumptions could influence the detected phase transition.
 Two model-free triangulations---a three-state Hidden Markov Model and an XGBoost/SHAP classifier---confirm the pattern under different functional form assumptions (full details in Appendix~\ref{app:triangulation}).
-The HMM identifies a stability OR of 0.54 (\pval{} = 0.032) for remaining in the Growth state; XGBoost identifies the feature-importance crossover between network size and stability at career year 11.4, closely matching the Cox model's year-10 threshold (mean AUC = 0.873).
+The HMM identifies a stability OR of 0.54 (\pval{} = 0.032) for remaining in the Growth state; XGBoost identifies the feature-importance crossover between network size and stability in career year 11.4, closely matching the Cox model's year-10 threshold (mean AUC = 0.873).
 The convergence of parametric (Cox), generative (HMM), and algorithmic (XGBoost) approaches on the same phase-transition window strengthens the claim that the pattern is not an artifact of any single modeling choice.
 
 \subsection{Pilot Replication: Film Industry (IMDb)}
 \label{sec:pilot_replication}
 
 To address the concern that the temporal non-stationarity finding rests on a single field (Korean art), a pilot replication was conducted using the IMDb film industry database.
-The film industry satisfies the same structural conditions as the primary setting: high gatekeeping centralization (directors select actors for roles, analogous to curators selecting artists; Gini = 0.745), cumulative endorsement dependence (credit-based career advancement), and observable institutional encounters (director-level casting records).
+The film industry satisfies the same structural conditions as the primary setting: high centralization of the gatekeeping (directors select actors for roles, analogous to curators selecting artists; Gini = 0.745), the dependency of cumulative endorsement (credit-based career advancement) and observable institutional encounters (director-level casting records).
 The mapping is: director $\equiv$ institution (gatekeeper), film credit $\equiv$ career event.
 Director-level stability is computed as cumulative film credits divided by unique directors; network size is the count of unique directors.
 Plateau is defined as a five-year gap without film credits.
@@ -700,7 +705,7 @@ Table~\ref{tab:imdb_replication} reports the full-sample interaction model on th
 
 \paragraph{Data-driven change-point estimation.}
 To address the concern that different specifications are applied to different datasets, a profile-likelihood change-point model was applied \textit{identically} to both datasets (Table~\ref{tab:unified_specification}).
-For each candidate $\tau \in \{5, 6, \ldots, 20\}$, phase-specific stability coefficients were estimated via separate Cox models, and the optimal $\tau^*$ was selected by AIC minimisation.
+For each candidate $\tau \in \{5, 6, \ldots, 20\}$, the phase-specific stability coefficients were estimated using separate Cox models, and the optimal $\tau^*$ was selected by AIC minimization.
 Cluster-bootstrap 95\% CIs (50 resamples) quantify uncertainty.
 In the Korean art data, the estimated change-point is $\tau^* = 10$ years (bootstrap 95\% CI: [5, 20]), closely matching the theoretical prediction and the Cox interaction's inflection point, with a pre-$\tau$ stability \HR{} of 1.060 (\pval{} = 0.385) and a post-$\tau$ \HR{} of 1.428 (\pval{} $<$ 0.001); a Wald test confirms the coefficient difference ($z$ = 2.456, \pval{} = 0.014).
 In the IMDb data, the estimated change-point is $\tau^* = 7$ years (bootstrap 95\% CI: [5, 11]), with a pre-$\tau$ stability \HR{} of 0.752 (\pval{} = 0.057, protective) and a post-$\tau$ \HR{} of 1.145 (\pval{} = 0.019, hazardous); the Wald test for the coefficient difference is significant ($z$ = 2.620, \pval{} = 0.009).
@@ -708,32 +713,32 @@ The bootstrap CIs overlap across datasets ([5, 20] and [5, 11]), indicating that
 Because the model---not the researcher---selects the cutpoint, this result directly addresses the concern of specification shopping.
 
 An RCS(career year) $\times$ stability interaction (Equation~\ref{eq:rcs_hazard}, 3 knots at Harrell's P10/P50/P90 percentiles) was also applied identically to both datasets.
-In the Korean art data, the conditional stability \HR{} rises monotonically from 1.068 (\pval{} = 0.468) at career onset to 1.188 (\pval{} = 0.008) at year 10 and 1.478 (\pval{} = 0.024) at year 20---closely matching the linear interaction result.
-In the IMDb data, the conditional \HR{} is directionally consistent (1.058--1.072 across career years) but does not reach significance, reflecting the same structural power limitation as the linear interaction.
-The change-point model is therefore the preferred unified specification, as it permits a discrete structural break rather than imposing smooth moderation (Figure~\ref{fig:unified_spec}).
+In Korean art data, conditional stability \HR{} increases monotonically from 1.068 (\pval{} = 0.468) at career onset to 1.188 (\pval{} = 0.008) in year 10 and 1.478 (\pval{} = 0.024) in year 20 -- nearly matching the linear interaction result.
+In IMDb data, the conditional \HR{} is directionally consistent (1.058--1.072 throughout career years) but does not reach significance, reflecting the same limitation of structural power as the linear interaction.
+The change-point model is therefore the preferred unified specification, as it allows a discrete structural break rather than imposing a smooth moderation (Figure~\ref{fig:unified_spec}).
 
 \paragraph{Phase-split analysis.}
-At the data-driven cutpoint, the phase-split analysis reveals the predicted directional reversal: in the pre-decade phase, stability is marginally protective (\HR{} = 0.759, \pval{} = 0.082), whereas in the post-decade phase, stability \textit{significantly increases} plateau hazard (\HR{} = 1.150, \pval{} = 0.019).
+At the data-driven cut-off point, phase-split analysis reveals the predicted directional reversal: in the pre-decade phase, stability is marginally protective (\HR{} = 0.759, \pval{} = 0.082), while in the post-decade phase, stability \textit{significantly increases} plateau hazard (\HR{} = 1.150, \pval{} = 0.019).
 A formal Wald test on the stability coefficient alone confirms that it differs significantly between the two periods ($z$ = 2.457, \pval{} = 0.014).
-A likelihood ratio test comparing the pooled model against fully phase-specific models corroborates the structural break (LR $\chi^2$ = 16.34, $df$ = 4, \pval{} = 0.003; $df$ = 4 because all four covariates are estimated separately in each phase).
+A likelihood ratio test that compares the pooled model with fully phase-specific models confirms structural breakdown (LR $\chi^2$ = 16.34, $df$ = 4, \pval{} = 0.003; $df$ = 4 because all four covariates are estimated separately in each phase).
 
 \paragraph{Why the linear interaction is null: empirical demonstration.}
-For completeness, the continuous \textit{linear} interaction is also reported: stability $\times$ career year is not significant (\HR{} = 1.015, \pval{} = 0.800), and the interaction model does not improve fit (LR $\chi^2$ = 0.19, \pval{} = 0.980).
-Two complementary analyses demonstrate that this null result reflects structural limitations of the linear parameterisation in the IMDb career distribution, not absence of temporal variation (Table~\ref{tab:power_restriction}).
+For completeness, the continuous \textit{linear} interaction is also reported: stability $\times$ career year is not significant (\HR{} = 1.015, \pval{} = 0.800), and the interaction model does not improve the fit (LR $\chi^2$ = 0.19, \pval{} = 0.980).
+Two complementary analyzes demonstrate that this null result reflects structural limitations of linear parameterization in the IMDb career distribution, not the absence of temporal variation (Table~\ref{tab:power_restriction}).
 
 First, \textit{analytical power analysis}.
-The Korean interaction coefficient ($\beta = 0.113$) was transplanted into the IMDb standard error structure (SE = 0.058).
-At $\alpha = 0.05$, the linear interaction test has only 49.8\% power to detect the Korean effect size in the IMDb career distribution---well below the conventional 80\% threshold.
-The minimum detectable effect for 80\% power would require an interaction coefficient 1.4$\times$ the Korean estimate (\HR{} $\geq$ 1.176).
+The Korean interaction coefficient ($\beta = 0.113$) was transferred to the standard error structure of IMDb (SE = 0.058).
+At $\alpha = 0.05$, the linear interaction test has only 49.8\% power to detect the size of the Korean effect in the IMDb career distribution, much below the conventional 80\% threshold.
+The minimum detectable effect for 80\% power would require an interaction coefficient 1.4$\times$ of the Korean estimate (\HR{} $\geq$ 1.176).
 
 Second, \textit{career-length restriction experiment}.
 When the IMDb sample is progressively restricted to actors with shorter careers, the pre-decade proportion of person-years increases toward the Korean baseline ($\sim$60\%), and the continuous linear interaction gains leverage.
 The results form a strikingly clean gradient (Table~\ref{tab:power_restriction}, Panel~B): restricting to careers $\leq$ 15 years (pre-decade = 86.8\%, comparable to the Korean data) yields a significant interaction (\HR{} = 2.050, \pval{} = 0.012); at $\leq$ 20 years (73.8\%), the interaction remains significant (\HR{} = 1.887, \pval{} = 0.035); even at $\leq$ 30 years (45.8\%), the interaction is highly significant (\HR{} = 1.642, \pval{} = 0.002).
 Only in the full sample, where average careers span 47 years and the pre-decade window constitutes just 19.3\%, does the interaction vanish (\HR{} = 1.015, \pval{} = 0.800).
-This experiment provides direct evidence that the career-length distribution---not the underlying effect---drives the specification difference between the two datasets.
+This experiment provides direct evidence that the career-length distribution --not the underlying effect -- drives the specification difference between the two datasets.
 
-A multi-cutpoint robustness analysis (Table~\ref{tab:imdb_cutpoint_robustness}) shows that the directional sign reversal---protective in the early phase, hazardous in the late phase---is consistent across all five cutpoints tested (years 7, 8, 10, 12, and 15), with the strongest results at cutpoints 7--10 where the pre-period sample is most balanced.
-This demonstrates that the finding is not contingent on the focal 10-year threshold.
+A multi-cutpoint robustness analysis (Table~\ref{tab:imdb_cutpoint_robustness}) shows that the directional sign reversal --protective in the early phase, hazardous in the late phase---is consistent across all five cutpoints tested (years 7, 8, 10, 12, and 15), with the strongest results at cutpoints 7--10 where the pre-period sample is most balanced.
+This shows that the finding is not dependent on the focal 10-year threshold.
 
 See Appendix~\ref{app:imdb_pilot} for data construction and reproducibility.
 
@@ -757,7 +762,7 @@ See Appendix~\ref{app:imdb_pilot} for data construction and reproducibility.
 
 \subsection{Time-Invariant Models as Misspecification}
 
-The pooled stability coefficient of 1.18 (\pval{} = 0.005) averages over a null effect in the first decade (\HR{} = 1.04) and a substantial effect thereafter (\HR{} = 1.39 at year 20)---a range in which the pooled estimate falls at no actually observed career stage.
+The pooled stability coefficient of 1.18 (\pval{} = 0.005) averages over a null effect in the first decade (\HR{} = 1.04) and a substantial effect thereafter (\HR{} = 1.39 in year 20) -- a range in which the pooled estimate falls at no actually observed career stage.
 This single number is a statistical artifact.
 Any study reporting a moderate, time-invariant network coefficient in a gatekept profession may be describing a similar artifact, confounding structurally distinct career phases into a single misleading summary.
 
@@ -767,7 +772,7 @@ The phase reversal replicates across operationalizations, plateau definitions, s
 
 \subsection{Career-Stage-Dependent Feedback}
 
-The bidirectional feedback between network structure and career outcomes is itself career-stage dependent---a finding that further constrains admissible causal models.
+The bidirectional feedback between network structure and career outcomes is itself career-stage dependent --a finding that further constrains admissible causal models.
 Even under the strongest version of the reverse-causal critique, the phase reversal remains consequential: the feedback loop \textit{does not operate uniformly across career time}, activating only after a decade and intensifying monotonically.
 The stage-specific Granger decomposition (Section~\ref{sec:causal}) confirms that the reverse-causal dominance is concentrated in the pre-decade window, while annual cross-lagged regressions lack the temporal resolution to detect the slowly accumulating processes theorized to operate post-decade.
 Under either causal reading, time-invariant models are misspecified---a point already established in Section~5.1, reinforced here by the demonstration that the \textit{feedback structure itself} varies with career time.
@@ -775,7 +780,7 @@ Under either causal reading, time-invariant models are misspecified---a point al
 \subsection{Evidence for a Forward-Acting Component}
 
 The closure analysis and productivity-conditioned models reported in Section~\ref{sec:causal} provide evidence that the forward pathway is non-trivial, though the precise decomposition remains open.
-The propensity-matched closure analysis---the strongest quasi-experimental test---yields a substantial treatment effect with a dose-response gradient that survives productivity controls, indicating that artists forced to diversify by exogenous institutional disappearance show lower subsequent plateau risk.
+The propensity-matched closure analysis -- the strongest quasi-experimental test -- yields a substantial treatment effect with a dose-response gradient that survives productivity controls, indicating that artists forced to diversify by exogenous institutional disappearance show lower subsequent plateau risk.
 The productivity-conditioned lag model retains 93\% of the stability effect after explicitly controlling for the direction of productivity change.
 
 The null mediation result deepens this account: the operative dimension is institution-specific evaluative redundancy, not categorical diversity compression---aligning with \citeauthor{lamont2012}'s (\citeyear{lamont2012}) emphasis on independent evaluative criteria.
@@ -787,34 +792,34 @@ Whether this mechanism is structurally invariant across professions is an empiri
 \label{sec:scope}
 
 Whether the phase reversal generalizes beyond the Korean art world is an empirical question; the present study provides a single case, not cross-field evidence.
-The theory generates testable predictions for any field satisfying three structural conditions: gatekeeping centralization, cumulative endorsement dependence, and observable institutional encounters.
+The theory generates testable predictions for any field that satisfies three structural conditions: gatekeeping centralization, cumulative endorsement dependence, and observable institutional encounters.
 These conditions are continuous: fields vary in the \textit{degree} to which they exhibit each property, and the theory predicts corresponding variations in the \textit{onset timing} and \textit{magnitude} of the phase reversal.
 
 \paragraph{Film industry: replication via IMDb.}
 Section~\ref{sec:pilot_replication} reports a pilot replication using the IMDb film industry database, where directors serve as gatekeepers analogous to art-world curators.
-Three independent analyses address the concern that different specifications are selected to match different datasets.
+Three independent analyzes address the concern that different specifications are selected to match different datasets.
 
 First, a data-driven change-point model applied identically to both datasets estimates the career-year threshold at which stability's coefficient shifts.
 The Korean data yield $\tau^* = 10$ years (bootstrap 95\% CI: [5, 20]); the IMDb data yield $\tau^* = 7$ years (bootstrap 95\% CI: [5, 11]).
 The overlapping CIs indicate that both datasets independently identify a structural break in the same career-year window, without researcher-specified cutpoints.
 
-Second, the linear interaction is null in IMDb (\HR{} = 1.015, \pval{} = 0.800), but analytical power analysis shows the linear test has only 49.8\% power to detect the Korean effect size ($\beta = 0.113$) given IMDb's standard error structure (SE = 0.058).
-The minimum detectable effect for 80\% power is 1.4$\times$ the Korean estimate.
+Second, the linear interaction is null in IMDb (\HR{} = 1.015, \pval{} = 0.800), but analytical power analysis shows that the linear test has only 49.8\% power to detect the size of the Korean effect ($\beta = 0.113$) given the standard error structure of IMDb (SE = 0.058).
+The minimum detectable effect for the 80\% power is 1.4$\times$ the Korean estimate.
 
-Third, a career-length restriction experiment provides the most direct evidence: when IMDb actors are restricted to careers $\leq$ 15 years (pre-decade = 86.8\%), the continuous linear interaction becomes significant (\HR{} = 2.050, \pval{} = 0.012), and significance persists at all restriction levels ($\leq$ 20 years: \HR{} = 1.887, \pval{} = 0.035; $\leq$ 30 years: \HR{} = 1.642, \pval{} = 0.002).
-The effect vanishes only in the full sample where careers average 47 years and the pre-decade window constitutes just 19.3\%.
+When IMDb actors are restricted to careers $\leq$ 15 years (pre-decade = 86.8\%), the continuous linear interaction becomes significant (\HR{} = 2.050, \pval{} = 0.012), and significance persists at all restriction levels ($\leq$ 20 years: \HR{} = 1.887, \pval{} = 0.035; $\leq$ 30 years: \HR{} = 1.642, \pval{} = 0.002).
+The effect vanishes only in the full sample, where careers average 47 years and the pre-decade window constitutes just 19.3\%.
 This experiment constitutes a direct experimental manipulation of the data-structural parameter theorized to produce the specification difference.
 
-At the data-driven cutpoint, the IMDb data reveal the predicted directional reversal: stability is marginally protective early (\HR{} = 0.752, \pval{} = 0.057) but significantly increases plateau risk thereafter (\HR{} = 1.145, \pval{} = 0.019).
-Combined with high director concentration (Gini = 0.745), these results provide evidence consistent with the theory in a second field with comparable gatekeeping centralization.
+At the data-driven cut-off point, the IMDb data reveal the predicted directional reversal: stability is marginally protective early (\HR{} = 0.752, \pval{} = 0.057) but significantly increases plateau risk thereafter (\HR{} = 1.145, \pval{} = 0.019).
+Combined with a high director concentration (Gini = 0.745), these results provide evidence consistent with theory in a second field with comparable gatekeeping centralization.
 Further replication in academic science (e.g., OpenAlex), performing arts, or other gatekept fields would strengthen external validity.
 
 \paragraph{Falsification criteria.}
-The theory would be weakened by: (a) no phase reversal in fields with equivalent gatekeeping centralization (e.g., performing arts, academic medicine); (b) a phase reversal in decentralized fields where gatekeeping is minimal; or (c) onset timing that does not covary with gatekeeping centralization across fields.
+The theory would be weakened by: (a) no phase reversal in fields with equivalent gatekeeping centralization (e.g., performing arts, academic medicine); (b) a phase reversal in decentralized fields where gatekeeping is minimal; or (c) onset timing that does not coincide with gatekeeping centralization across fields.
 
 \subsection{Implications for Institutional Design}
 
-If the forward-acting component is real---and the closure analysis suggests it is non-trivial---then institutional interventions that disrupt evaluative redundancy in the post-decade window would reduce career stagnation.
+If the forward-acting component is real -- and the closure analysis suggests it is non-trivial---then institutional interventions that disrupt evaluative redundancy in the post-decade window would reduce career stagnation.
 Mandatory rotation of curatorial or editorial committees, diversification incentives in grant criteria, and structured mid-career review processes are structurally plausible interventions.
 Even under a purely reverse-causal reading, the post-decade intensification identifies a specific career-stage window where intervention would be most impactful.
 Independently of the causal question, the modeling implication of Layer~1 alone warrants routine testing of career-year interactions in network--career research.
@@ -823,34 +828,34 @@ Independently of the causal question, the modeling implication of Layer~1 alone 
 
 Four limitations define the interpretive scope.
 First, the paper targets the temporal structure of the network--career association rather than definitive causal identification.
-The analyses in Section~\ref{sec:causal} provide convergent evidence for a forward-acting component, but definitive causal decomposition remains a task for future designs with larger pools of exogenous variation.
+The analyzes in Section~\ref{sec:causal} provide convergent evidence for a forward-acting component, but definitive causal decomposition remains a task for future designs with larger pools of exogenous variation.
 The temporal non-stationarity finding constrains the set of admissible causal models under either reading and is therefore a necessary empirical precursor to future causal designs.
-Second, the ``master''-designated sample restricts inference to within-elite stratification---a feature for internal validity but a limitation for external validity.
-Third, the observation period (1929--2002) spans substantial institutional upheaval, though the phase reversal replicates across all four institutional regimes and the use of \textit{career year} as the temporal axis absorbs calendar-specific shocks.
-Fourth, the empirical evidence comes primarily from a single field (Korean art), though Section~\ref{sec:pilot_replication} provides a pilot replication in the film industry (IMDb) where the phase reversal replicates with a statistically significant structural break (\pval{} = 0.014).
-The continuous \textit{linear} interaction term is null, but this is explained by structural power deficit (49.8\% power for the Korean effect size) rather than effect absence---as confirmed by three independent diagnostics: a data-driven change-point model finds overlapping thresholds ($\tau^* = 10$ years in Korean [5, 20], $\tau^* = 7$ years in IMDb [5, 11]); a career-length restriction experiment shows the linear interaction becoming significant (\HR{} = 2.050, \pval{} = 0.012) when the career distribution is restricted to $\leq$ 15 years, directly demonstrating that the data structure drives the specification difference; and the RCS specification confirms directional consistency under the same functional form.
-Generalizability to other gatekept professions (e.g., clinical medicine) remains theoretical pending replication; the structural conditions and falsification criteria in Section~\ref{sec:scope} provide a roadmap.
+Second, the ``'' designated sample `` master restricts inference to within-elite stratification, a feature for internal validity but a limitation for external validity.
+Third, the observation period (1929--2002) spans substantial institutional upheaval, though the phase reversal replicates across all four institutional regimes, and the use of \textit{career year} as the temporal axis absorbs calendar-specific shocks.
+Fourth, empirical evidence comes primarily from a single field (Korean art), although Section~\ref{sec:pilot_replication} provides a pilot replication in the film industry (IMDb) where phase reversal replicates with a statistically significant structural break (\pval{} = 0.014).
+ a data-driven change-point model finds overlapping thresholds ($\tau^* = 10$ years in Korean [5, 20], $\tau^* = 7$ years in IMDb [5, 11]); a career-length restriction experiment shows the linear interaction becoming significant (\HR{} = 2.050, \pval{} = 0.012) when the career distribution is restricted to $\leq$ 15 years, directly demonstrating that the data structure drives the specification difference; and the RCS specification confirms directional consistency under the same functional form.
+Generalizability to other gatekept professions (e.g. clinical medicine) remains theoretical pending replication; the structural conditions and falsification criteria in Section~\ref{sec:scope} provide a roadmap.
 
 % ================================================================
 \section{Conclusion}
 
 The central finding of this study is that time-invariant models mischaracterize professional stratification in gatekept fields.
-The pooled stability coefficient of 1.18 averages over a null effect in the first decade (\HR{} = 1.04) and a substantial effect in mid-to-late career (\HR{} = 1.39 at year 20), describing a statistical artifact that corresponds to no actual career stage.
+The pooled stability coefficient of 1.18 averages over a null effect in the first decade (\HR{} = 1.04) and a substantial effect in the mid-to-late career (\HR{} = 1.39 in year 20), describing a statistical artifact that does not correspond to the actual career stage.
 This finding holds regardless of causal direction: under any admissible causal model, pooled specifications conflate structurally distinct career phases.
 
-The bidirectional feedback between network structure and career outcomes is itself career-stage dependent---a finding that further constrains admissible models.
+The bidirectional feedback between network structure and career outcomes is itself career-stage dependent --a finding that further constrains admissible models.
 The feedback loop activates only after a decade and intensifies monotonically, whether one reads this as a compounding forward-acting cost, an intensifying reverse-causal spiral, or both.
 The cumulative advantage framework requires an explicitly dynamic reformulation in which the sign, not merely the magnitude, of structural effects varies with career time.
 
 Institution closure evidence and productivity-conditioned models support a forward-acting evaluative redundancy component, though definitive causal decomposition requires future quasi-experimental designs.
-The closure analysis---in which artists forced to diversify by exogenous venue disappearance show lower subsequent plateau risk---provides the strongest available leverage, but the precise allocation of the observed association between forward and reverse channels remains open.
+The closure analysis--in which artists forced to diversify by exogenous venue disappearance show lower subsequent plateau risk--provides the strongest available leverage, but the precise allocation of the observed association between forward and reverse channels remains open.
 
 A pilot replication in the film industry (IMDb) provides cross-field evidence consistent with the theory.
-A data-driven change-point model applied identically to both datasets identifies overlapping career-year thresholds (Korean: $\tau^* = 10$ years, IMDb: $\tau^* = 7$ years; bootstrap CIs overlap) without researcher-specified cutpoints.
-In the phase-split analysis at these thresholds, director-network stability is marginally protective early (\HR{} = 0.752, \pval{} = 0.057) but significantly increases plateau hazard thereafter (\HR{} = 1.145, \pval{} = 0.019), and a formal structural break test rejects the null of equal coefficients (\pval{} = 0.009).
-A career-length restriction experiment provides the strongest evidence: when the IMDb sample is restricted to careers $\leq$ 15 years (making its career distribution comparable to the Korean data), the continuous linear interaction---null in the full sample---becomes significant (\HR{} = 2.050, \pval{} = 0.012), directly demonstrating that the career distribution drives the specification difference.
+A data-driven change-point model applied identically to both datasets identifies overlapping career-year thresholds (Korean: $\tau^* = 10$ years, IMDb: $\tau^* = 7$ years; bootstrap CI overlap) without researcher-specified cutpoints.
+In phase-split analysis at these thresholds, the stability of the director-network is marginally protective at the beginning (\HR{} = 0.752, \pval{} = 0.057) but significantly increases the plateau hazard afterward (\HR{} = 1.145, \pval{} = 0.019), and a formal structural break test rejects the null of equal coefficients (\pval{} = 0.009).
+A career-length restriction experiment provides the strongest evidence: when the IMDb sample is restricted to careers $\leq$ 15 years (making its career distribution comparable to the Korean data), the continuous linear interaction, null in the full sample, becomes significant (\HR{} = 2.050, \pval{} = 0.012), directly demonstrating that the career distribution drives the specification difference.
 Three extensions would strengthen the research program.
-First, definitive causal identification requires exogenous shocks to network structure---directorial retirements in film, journal closures in science, or curatorial rotation mandates in art---directly building on the open question of causal decomposition from the closure analysis.
+First, definitive causal identification requires exogenous shocks to network structure --directorial retirements in film, journal closures in science, or curatorial rotation mandates in art --directly building on the open question of causal decomposition from the closure analysis.
 Second, full-scale replications in academic science and other gatekept professions would establish the generality of the phase reversal; the structural conditions and falsification criteria in Section~\ref{sec:scope} provide a roadmap.
 Third, investigating fields where the theory predicts the \textit{absence} of the phase reversal (e.g., decentralized digital creative industries) would provide the negative-case evidence needed to validate the structural logic.
 
@@ -858,10 +863,10 @@ Whether the operative mechanism runs forward, backward, or both, time-invariant 
 
 
 \subsection*{Data and Code Availability}
-The complete reproducibility package---including all statistical analysis code (Python), the enriched bilingual dataset (JSON), the web-crawling scripts, and the data-construction pipeline---is publicly available at \url{https://osf.io/6vxyr/?view_only=5d8e3c3f0cc54969b2a91a85822288a0}.
+The complete reproducibility package---including all statistical analysis code (Python), the enriched bilingual dataset (JSON), the web-crawling scripts, and the data-construction pipeline---is publicly available at \url{https://github.com/joonhyungbae/TITV}. 
 The repository is organized into four components: (1)~\texttt{crawler/}, which contains the scripts that extract raw career profiles from the DA-Arts public web interface; (2)~\texttt{code/}, containing the data set construction pipeline (\texttt{00\_build\_dataset.py}), all analytical scripts that reproduce every table, figure and statistical test reported in this article, the IMDb pilot replication scripts (\texttt{26\_imdb\_fetch.py}, \texttt{27\_imdb\_panel.py}, \texttt{28\_imdb\_replication.py}), the unified RCS specification and change-point estimation (\texttt{29\_unified\_specification.py}), and the power analysis with career-length restriction experiment (\texttt{30\_power\_and\_restriction.py}); (3)~\texttt{data/}, containing the enriched structured dataset (\texttt{data.json}; 505 artists, 16,424 career events, each with 12 standardized attributes in bilingual Korean/English form) together with the institution-classification and translation dictionaries used in construction; and (4)~\texttt{figures/}, containing all output figures.
 The raw archival data are drawn from DA-Arts (Korean Arts Digital Archive), a publicly accessible national digital collection maintained by the ARKO Arts Archive (\url{https://www.daarts.or.kr}).
-Because the enriched dataset substantially extends the raw archive---adding structured event-level coding, institution-type classifications, geographic metadata, and computed career indicators not present in the source---it is intended as a standalone data contribution for reuse in studies of Korean art history, cultural-field dynamics, and comparative career sociology.
+Because the enriched dataset substantially extends the raw archive --adding structured event-level coding, institution-type classifications, geographic metadata, and computed career indicators not present in the source --it is intended as a standalone data contribution for reuse in studies of Korean art history, cultural-field dynamics, and comparative career sociology.
 
 \clearpage
 
@@ -880,15 +885,15 @@ Because the enriched dataset substantially extends the raw archive---adding stru
 The analytical dataset was constructed through a three-step pipeline.
 First, the complete career profiles of all 505 artists archived in DA-Arts were programmatically crawled from the public web interface (\url{https://www.daarts.or.kr/handle/11080/[artist\_id]}).
 Each artist's page contains unstructured or semi-structured Korean-language text describing biographical information, educational background, exhibition history, awards, collection holdings, and professional appointments.
-Second, the raw HTML content was parsed and restructured into a hierarchical JSON schema in which each artist record contains standardized fields for metadata, demographics, education history, career events (with year, event type, institution, city, and country), exhibition metrics, institutional engagement patterns, and network indicators---yielding a machine-readable, analysis-ready dataset.
+Second, the raw HTML content was parsed and restructured into a hierarchical JSON schema in which each artist record contains standardized fields for metadata, demographics, education history, career events (with year, event type, institution, city, and country), exhibition metrics, institutional engagement patterns, and network indicators -- yielding a machine-readable, analysis-ready dataset.
 Third, all Korean-language content was systematically translated into English using official romanizations and established English names: institution names follow their official English designations (e.g., Gungnip Hyeondae Misulgwan $\rightarrow$ National Museum of Modern and Contemporary Art; Hongik Daehakgyo $\rightarrow$ Hongik University), place names follow the Revised Romanization of Korean, and artist names follow standard Korean name romanization conventions.
-Each field is stored in bilingual form (\texttt{\_ko} and \texttt{\_en} suffixes), preserving the original Korean text alongside the English translation for verification.
+Each field is stored in bilingual form (\texttt{substrates \_ko} and \texttt{\_en} , preserving the original Korean text along with the English translation for verification.
 
 \paragraph{Data enrichment beyond the source archive.}
-The publicly available DA-Arts pages store career information primarily as free-form Korean-language text strings (e.g., ``1987-nyeon Baegak Misulgwan'' [1987, Baegak Art Museum]), with minimal structural markup.
+The publicly available DA-Arts pages store career information primarily as free-form Korean-language text strings (e.g. ``1987-nyeon Baegak Misulgwan'' [1987, Baegak Art Museum]), with minimal structural markup.
 The construction pipeline transforms this raw material into a substantially richer analytical resource: each career entry is decomposed into a structured record containing the event year, a standardized event-type label (solo exhibition, group exhibition, award, biennale, collection, honor, residency, education, position, or other), the hosting institution in bilingual form, an institution-type classification, and geographic coding.
 At the artist level, the pipeline computes derived modules not present in the source archive, including education profiles, career timelines, exhibition metrics disaggregated by decade and geography, and institutional-engagement indicators.
-All institution names are mapped to official English equivalents via curated translation dictionaries, yielding a fully bilingual dataset.
+All institution names are assigned official English equivalents through curated translation dictionaries, yielding a fully bilingual dataset.
 
 \section{Nested Model Sequence}
 \label{app:nested_models}
@@ -931,14 +936,14 @@ The Wald test for joint archetype $\times$ stability interaction is marginally n
 \section{IMDb Pilot Replication: Data Construction}
 \label{app:imdb_pilot}
 
-The pilot replication uses the IMDb Non-Commercial Datasets (\url{https://datasets.imdbws.com/}), a publicly accessible film industry database.
+The pilot replication uses IMDb Non-Commercial Datasets (\url{https://datasets.imdbws.com/}), a publicly accessible film industry database.
 Four gzip-compressed TSV files are streamed: \texttt{title.basics.tsv.gz} (movie metadata), \texttt{title.crew.tsv.gz} (directors), \texttt{title.principals.tsv.gz} (cast credits), and \texttt{name.basics.tsv.gz} (actor demographics).
 Records are filtered to non-adult theatrical films released between 1950 and 2024.
 The mapping to the primary analysis is: director $\equiv$ institution (gatekeeper who selects actors), film credit $\equiv$ career event.
 Director-level stability is computed as cumulative film credits divided by unique directors; network size is the count of unique directors.
 This conceptualization captures the evaluative redundancy mechanism: actors who work repeatedly with the same directors develop concentrated endorsement patterns analogous to artists exhibiting at the same galleries.
-Plateau is defined as a five-year gap without film credits.
-Career year is computed as credit year minus first credit year.
+The plateau is defined as a five-year gap without film credits.
+The career year is computed as the credit year minus the first credit year.
 The person-year panel is constructed analogously to the DA-Arts pipeline (Section~\ref{app:data_construction}).
 The fetch script \texttt{26\_imdb\_fetch.py} extracts actors with at least 20 credits and career spans of 15+ years (500 actors); \texttt{27\_imdb\_panel.py} builds the person-year panel (24,107 person-years, 146 plateau events); \texttt{28\_imdb\_replication.py} fits the Cox time-varying model and produces Table~\ref{tab:imdb_replication}; \texttt{29\_unified\_specification.py} applies the unified RCS specification and change-point estimation to both datasets; \texttt{30\_power\_and\_restriction.py} conducts the power analysis and career-length restriction experiment.
 
@@ -951,7 +956,7 @@ Logistic regression on Growth state transitions ($n = 660$, 42 events) yields st
 The stability interaction $\times$ for the career year is directionally consistent (OR = 0.56, \pval{} = 0.065).
 
 \paragraph{XGBoost with SHAP.}
-An XGBoost classifier (12 covariates, grouped 5-fold CV; mean AUC = 0.873) identifies the feature importance crossover between network size and network stability in career year 11.4 -- closely matching the Cox model's year-10 threshold.
+An XGBoost classifier (12 covariates, grouped 5-fold CV; mean AUC = 0.873) identifies the crossover of importance of the feature between network size and network stability in career year 11.4 -- closely matching the Cox model's year-10 threshold.
 In the early career (years 0--4), cumulative validation dominates prediction (mean $|\text{SHAP}| = 0.82$) while network size contributes minimally ($|\text{SHAP}| = 0.03$); by years 15--19, network size becomes the dominant structural predictor ($|\text{SHAP}| = 0.41$).
 The HMM triangulation, while directionally consistent, rests on a small number of state transitions and should be interpreted cautiously.
 
